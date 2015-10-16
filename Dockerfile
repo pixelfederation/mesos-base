@@ -1,7 +1,8 @@
 ################################################################################
-# mesos-base:1.0.1
-# Date: 10/7/2015
-# Mesos Version: 0.23.0-1.0.ubuntu1404
+# mesos-base:1.0.2
+# Date: 10/16/2015
+# Mesos Version: 0.23.1-0.2.61.ubuntu1404
+# Zookeeper Version: 3.4.5+dfsg-1
 #
 # Description:
 # Base build for mesos related containers.
@@ -11,7 +12,8 @@ FROM mrbobbytables/ubuntu-base:1.0.0
 MAINTAINER Bob Killen / killen.bob@gmail.com / @mrbobbytables
 
 
-ENV VERSION_MESOS=0.23.0-1.0.ubuntu1404         \
+ENV VERSION_MESOS=0.23.1-0.2.61.ubuntu1404      \
+    VERSION_ZOOKEEPER=3.4.5+dfsg-1              \
     JAVA_HOME=/usr/lib/jvm/java-8-oracle        \
     DERBY_HOME=/usr/lib/jvm/java-8-oracle/db    \
     J2SDKDIR=/usr/lib/jvm/java-8-oracle         \
@@ -27,15 +29,16 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E56151BF           
  && echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" >> /etc/apt/sources.list.d/oracle-java.list    \
  && echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections                                      \
  && echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections                                        \
- && locale-gen en_US.UTF-8    \
- && dpkg-reconfigure locales  \
- && apt-get -y update         \
- && apt-get -y install        \
-    curl                      \
-    mesos=$VERSION_MESOS      \
-    oracle-java8-installer    \
-    wget                      \
- && apt-get clean             \
+ && locale-gen en_US.UTF-8        \
+ && dpkg-reconfigure locales      \
+ && apt-get -y update             \
+ && apt-get -y install            \
+    curl                          \
+    mesos=$VERSION_MESOS          \
+    oracle-java8-installer        \
+    wget                          \
+    zookeeper=$VERSION_ZOOKEEPER  \
+ && apt-get clean                 \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*  \
  && rm -rf /var/cache/oracle-jdk8-installer        \
  && rm -rf /etc/mesos/zk
