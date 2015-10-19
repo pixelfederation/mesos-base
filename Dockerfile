@@ -20,7 +20,6 @@ ENV VERSION_MESOS=0.24.1-0.2.35.ubuntu1404      \
     JAVACPROOT=/usr/share/java                  \
     LC_ALL=en_US.UTF-8                          \
     PATH=$PATH:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
->>>>>>> d9a310f6ac94e4645edd689e4c51630e3ada8e83
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E56151BF                                     \
  && echo "deb http://repos.mesosphere.io/ubuntu/ trusty main" >> /etc/apt/sources.list.d/mesosphere.list  \
