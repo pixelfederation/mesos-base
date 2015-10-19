@@ -11,20 +11,34 @@ FROM mrbobbytables/ubuntu-base:1.0.0
 MAINTAINER Bob Killen / killen.bob@gmail.com / @mrbobbytables
 
 
-ENV JAVACPROOT=/usr/share/java          \
-    LC_ALL=en_US.UTF-8                  \
-    VERSION_MESOS=0.24.1-0.2.35.ubuntu1404
+ENV VERSION_MESOS=0.24.1-0.2.35.ubuntu1404      \
+    VERSION_ZOOKEEPER=3.4.5+dfsg-1              \
+    JAVA_HOME=/usr/lib/jvm/java-8-oracle        \
+    DERBY_HOME=/usr/lib/jvm/java-8-oracle/db    \
+    J2SDKDIR=/usr/lib/jvm/java-8-oracle         \
+    J2REDIR=/usr/lib/jvm/java-8-oracle/jre      \
+    JAVACPROOT=/usr/share/java                  \
+    LC_ALL=en_US.UTF-8                          \
+    PATH=$PATH:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+>>>>>>> d9a310f6ac94e4645edd689e4c51630e3ada8e83
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E56151BF                                     \
  && echo "deb http://repos.mesosphere.io/ubuntu/ trusty main" >> /etc/apt/sources.list.d/mesosphere.list  \
- && locale-gen en_US.UTF-8    \
- && dpkg-reconfigure locales  \
- && apt-get -y update         \
- && apt-get -y install        \
-    mesos=$VERSION_MESOS      \
-    curl                      \
-    wget                      \
- && apt-get clean             \
+ && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886                                     \
+ && echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" >> /etc/apt/sources.list.d/oracle-java.list        \
+ && echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" >> /etc/apt/sources.list.d/oracle-java.list    \
+ && echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections                                      \
+ && echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections                                        \
+ && locale-gen en_US.UTF-8        \
+ && dpkg-reconfigure locales      \
+ && apt-get -y update             \
+ && apt-get -y install            \
+    curl                          \
+    mesos=$VERSION_MESOS          \
+    oracle-java8-installer        \
+    wget                          \
+    zookeeper=$VERSION_ZOOKEEPER  \
+ && apt-get clean                 \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*  \
+ && rm -rf /var/cache/oracle-jdk8-installer        \
  && rm -rf /etc/mesos/zk
-
