@@ -1,13 +1,13 @@
 ################################################################################
-# mesos-base:1.1.0
-# Date: 10/23/2015
+# mesos-base:1.1.1
+# Date: 11/07/2015
 # Mesos Version: 0.24.1-0.2.35.ubuntu1404
 #
 # Description:
 # Base build for mesos related containers.
 ################################################################################
 
-FROM mrbobbytables/ubuntu-base:1.0.0
+FROM mrbobbytables/ubuntu-base:1.0.1
 MAINTAINER Bob Killen / killen.bob@gmail.com / @mrbobbytables
 
 
