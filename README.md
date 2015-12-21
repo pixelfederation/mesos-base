@@ -4,7 +4,7 @@ Base container for all services that require Mesos related depenendancies. Mesos
 
 ##### Version Information:
 
-* **Container Release:** 1.1.3
-* **Mesos:** 0.25.0-0.2.70.ubuntu1404
-* **Mesos Documentation:** [mesos@2dd7f7e](https://github.com/apache/mesos/tree/2dd7f7ee115fe00b8e098b0a10762a4fa8f4600f/docs)
+* **Container Release:** 1.1.4
+* **Mesos:** 0.26.0-0.2.145.ubuntu1404
+* **Mesos Documentation:** [mesos@d3717e5](https://github.com/apache/mesos/tree/d3717e5c4d1bf4fca5c41cd7ea54fae489028faa/docs)
 
