@@ -1,7 +1,7 @@
 ################################################################################
-# mesos-base:1.2.0
-# Date: 1/21/2016
-# Mesos Version: 0.26.0-0.2.145.ubuntu1404
+# mesos-base:1.2.1
+# Date: 07/14/2016
+# Mesos Version: 0.28.2-2.0.27.ubuntu1404
 #
 # Description:
 # Base build for mesos related containers.
@@ -11,7 +11,7 @@ FROM mrbobbytables/ubuntu-base:1.1.0
 MAINTAINER Bob Killen / killen.bob@gmail.com / @mrbobbytables
 
 
-ENV VERSION_MESOS=0.26.0-0.2.145.ubuntu1404     \
+ENV VERSION_MESOS=0.28.2-2.0.27.ubuntu1404     \
     VERSION_ZOOKEEPER=3.4.5+dfsg-1              \
     JAVA_HOME=/usr/lib/jvm/java-8-oracle        \
     DERBY_HOME=/usr/lib/jvm/java-8-oracle/db    \
