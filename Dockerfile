@@ -5,10 +5,12 @@
 #
 # Description:
 # Base build for mesos related containers.
+# Former author
+# MAINTAINER Bob Killen / killen.bob@gmail.com / @mrbobbytables
 ################################################################################
 
 FROM mrbobbytables/ubuntu-base:1.1.0
-MAINTAINER Bob Killen / killen.bob@gmail.com / @mrbobbytables
+MAINTAINER Milan Baran / mbaran@pixelfederation.com / @mbaran
 
 
 ENV VERSION_MESOS=0.28.2-2.0.27.ubuntu1404     \
